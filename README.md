@@ -11,8 +11,16 @@ Sick and tired of building crappy SOAP implementations?
 # Demo
 <img src="https://raw.githubusercontent.com/wiki/phpro/soap-client/soap-client-demo-fast.gif" alt="Soap Client demo" width="100%"/> 
 
+# Want to help out? 💚
 
-## Prerequisites
+- [Become a Sponsor](https://github.com/php-soap/.github/blob/main/HELPING_OUT.md#sponsor)
+- [Let us do your implementation](https://github.com/php-soap/.github/blob/main/HELPING_OUT.md#let-us-do-your-implementation)
+- [Contribute](https://github.com/php-soap/.github/blob/main/HELPING_OUT.md#contribute)
+- [Help maintain these packages](https://github.com/php-soap/.github/blob/main/HELPING_OUT.md#maintain)
+
+Want more information about the future of this project? Check out this list of the [next big projects](https://github.com/php-soap/.github/blob/main/PROJECTS.md) we'll be working on.
+
+# Prerequisites
 
 You can choose what HTTP client you want to use.
 This package expects some PSR implementations to be present in order to be installed:
@@ -27,7 +35,7 @@ Example:
 $ composer require symfony/http-client nyholm/psr7
 ```
 
-## Installation
+# Installation
 
 ```sh
 $ composer require phpro/soap-client
@@ -98,7 +106,7 @@ To solve the above problems, this package will force you into using Value-object
  We know that maintaining these value-objects can be a load of work. 
  No worries! There are some commandline tools available that will help you with generating a good base to start with.
  Because the SoapClient will need a classmap of WSDL to PHP Classes, there is also a classmap generator available.
- This will surely safe you a lot of time!
+ This will surely save you a lot of time!
  By adding SOAP type converters, it is possible to transform the values of a specific SOAP type from/to a PHP type.
  The package comes included with some basic transformers for date and datetime.
  On, top of that, it is very easy to create your own transformers.
