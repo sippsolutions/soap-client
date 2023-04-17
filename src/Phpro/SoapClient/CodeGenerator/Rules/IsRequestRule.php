@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace Phpro\SoapClient\CodeGenerator\Rules;
 
 use Phpro\SoapClient\CodeGenerator\Context\ContextInterface;
+use Phpro\SoapClient\CodeGenerator\Context\PropertyContext;
 use Phpro\SoapClient\CodeGenerator\Context\TypeContext;
 use Phpro\SoapClient\CodeGenerator\Util\Normalizer;
 use Phpro\SoapClient\Soap\Metadata\Detector\RequestTypesDetector;
 use Soap\Engine\Metadata\Metadata;
+use function Psl\Type\non_empty_string;
 
 class IsRequestRule implements RuleInterface
 {
@@ -35,7 +37,7 @@ class IsRequestRule implements RuleInterface
 
     public function appliesToContext(ContextInterface $context): bool
     {
-        if (!$context instanceof TypeContext) {
+        if (!$context instanceof TypeContext && !$context instanceof PropertyContext) {
             return false;
         }
 
@@ -57,7 +59,7 @@ class IsRequestRule implements RuleInterface
         if (null === $this->requestTypes) {
             $this->requestTypes = array_map(
                 static function (string $type) {
-                    return Normalizer::normalizeClassname($type);
+                    return Normalizer::normalizeClassname(non_empty_string()->assert($type));
                 },
                 (new RequestTypesDetector())($this->metadata->getMethods())
             );
