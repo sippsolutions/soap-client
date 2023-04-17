@@ -13,6 +13,7 @@
     ],
     "require": {
         "php": "^8.0",
+        "azjezz/psl": "*",
         "laminas/laminas-code": "^4.4.0",
         "php-soap/engine": "^1.0",
         "php-soap/ext-soap-engine": "^1.0",
